@@ -6,6 +6,7 @@ public class Usuario {
     
     private String userName;
     private String userPassword;
+    private String prioridad;
     private String nombre;
     private String apellido;
     private String genero;
@@ -19,6 +20,11 @@ public class Usuario {
         this.userPassword = userPassword;
         this.tipo = tipo;
     }
+
+    public Usuario(String userName) {
+        this.userName = userName;
+    }
+    
 
     public Usuario(String nombre, String apellido, String genero, String facultad, String beca, String estado) {
         this.nombre = nombre;
@@ -54,6 +60,14 @@ public class Usuario {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public String getPrioridad() {
+        return prioridad;
+    }
+
+    public void setPrioridad(String prioridad) {
+        this.prioridad = prioridad;
     }
 
    

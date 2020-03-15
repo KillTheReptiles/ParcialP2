@@ -1,23 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
-
-
-public class Solicitud {
+import modelo.Usuario;
+public class Solicitud{
     
     private String fecha;
     private String descripcion;
     private String prioridad;
-    private String estudiante;
+    
+    Usuario user;
+    
+
+    public Solicitud(String fecha, String descripcion, String prioridad, String userName) {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
+
+    public Solicitud() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
     public String getFecha() {
+        
         return fecha;
     }
 
     public void setFecha(String fecha) {
+        
         this.fecha = fecha;
     }
 
@@ -37,13 +45,4 @@ public class Solicitud {
         this.prioridad = prioridad;
     }
 
-    public String getEstudiante() {
-        return estudiante;
-    }
-
-    public void setEstudiante(String estudiante) {
-        this.estudiante = estudiante;
-    }
-         
-    
 }

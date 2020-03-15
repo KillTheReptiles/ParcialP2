@@ -10,10 +10,21 @@
         <ui:composition template="./estudiante.xhtml">
 
             <ui:define name="contenido">
-                <h:outputText value="#currentDate">
-                  <f:convertDateTime pattern="MM/dd/yyyy" type="date" />
-                </h:outputText>
-                <h:inputTextarea rows="5" value=""/>
+
+                Descripcion: 
+                <br/>
+                <h:inputTextarea   rows="10" cols="50" id="descripcion" value="#{userController.solicitud.descripcion}"/>
+
+                <br/>
+                Prioridad:
+                <br/>
+                <h:selectOneMenu id="prioridad" value="#{userController.user.prioridad}" >
+                    <f:selectItem itemLabel="Alta" itemValue="A" />
+                    <f:selectItem itemLabel="Media" itemValue="M" />
+                    <f:selectItem itemLabel="Baja" itemValue="B" /> 
+                </h:selectOneMenu>
+                <br/>
+                <h:commandButton action="#{userController.enviarSolicitud()}" value="Enviar"></h:commandButton>
             </ui:define>
 
         </ui:composition>

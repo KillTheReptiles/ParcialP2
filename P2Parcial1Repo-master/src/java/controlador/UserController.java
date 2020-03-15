@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.context.FacesContext;
+import modelo.Solicitud;
 import modelo.Usuario;
 
 /**
@@ -20,6 +21,13 @@ public class UserController {
     private Usuario user;
     private List<Usuario> userList;
 
+    public UserController(Solicitud solicitud) {
+        this.solicitud = solicitud;
+    }
+    private Solicitud solicitud;
+    private List<Solicitud> solicitudList;
+    
+
     /**
      * Creates a new instance of UsuarioController
      */
@@ -30,6 +38,10 @@ public class UserController {
         userList.add(new Usuario("Pepito", "1234", "admin"));
         userList.add(new Usuario("Ferpito", "234", "estu"));
         userList.add(new Usuario("Lolito", "4578", "estu"));
+        solicitudList = new ArrayList<>();
+        
+        
+
     }
 
     public Usuario getUser() {
@@ -42,6 +54,21 @@ public class UserController {
 
     public List<Usuario> getUserList() {
         return userList;
+    }
+        public Solicitud getSolicitud() {
+        return solicitud;
+    }
+
+    public void setSolicitud(Solicitud solicitud) {
+        this.solicitud = solicitud;
+    }
+
+    public List<Solicitud> getSolicitudList() {
+        return solicitudList;
+    }
+
+    public void setSolicitudList(List<Solicitud> solicitudList) {
+        this.solicitudList = solicitudList;
     }
 
     public void logout() throws IOException {
@@ -69,9 +96,16 @@ public class UserController {
 
             }
         }
-        
+
         return pagina;
 
+    }
+    
+    public void enviarSolicitud()
+    { 
+        solicitudList.add(this.solicitud);
 
     }
+    
+
 }
