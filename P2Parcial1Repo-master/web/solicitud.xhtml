@@ -10,21 +10,28 @@
         <ui:composition template="./estudiante.xhtml">
 
             <ui:define name="contenido">
+                <h:form>
+                    
+                    Nombre:
+                    <br/>
+                    <h:inputText id="usuario" value="#{userController.solicitud.usuario}"/>
+                    
+                    <br/><br/>
+                    Descripcion: 
+                    <br/>
+                    <h:inputTextarea rows="10" cols="50" id="descripcion" value="#{userController.solicitud.descripcion}"/>
 
-                Descripcion: 
-                <br/>
-                <h:inputTextarea   rows="10" cols="50" id="descripcion" value="#{userController.solicitud.descripcion}"/>
-
-                <br/>
-                Prioridad:
-                <br/>
-                <h:selectOneMenu id="prioridad" value="#{userController.user.prioridad}" >
-                    <f:selectItem itemLabel="Alta" itemValue="A" />
-                    <f:selectItem itemLabel="Media" itemValue="M" />
-                    <f:selectItem itemLabel="Baja" itemValue="B" /> 
-                </h:selectOneMenu>
-                <br/>
-                <h:commandButton action="#{userController.enviarSolicitud()}" value="Enviar"></h:commandButton>
+                    <br/><br/>
+                    Prioridad:
+                    <br/>
+                    <h:selectOneMenu id="prioridad" value="#{userController.solicitud.prioridad}" >
+                        <f:selectItem itemLabel="Alta" itemValue="A" />
+                        <f:selectItem itemLabel="Media" itemValue="M" />
+                        <f:selectItem itemLabel="Baja" itemValue="B" /> 
+                    </h:selectOneMenu>
+                    <br/><br/>
+                    <h:commandButton action="#{userController.enviarSolicitud()}" value="Enviar"></h:commandButton>
+                </h:form>
             </ui:define>
 
         </ui:composition>

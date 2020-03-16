@@ -3,7 +3,12 @@
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns="http://www.w3.org/1999/xhtml"
                 template="./admin.xhtml"
-                xmlns:h="http://xmlns.jcp.org/jsf/html">
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <ui:define name="head">
+        <f:event type="prerender" listener="#{userController.validarAdmin()}"/>
+    </ui:define>
 
     <ui:define name="contenido">
         <h:form>

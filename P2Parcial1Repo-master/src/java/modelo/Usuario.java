@@ -6,7 +6,6 @@ public class Usuario {
     
     private String userName;
     private String userPassword;
-    private String prioridad;
     private String nombre;
     private String apellido;
     private String genero;
@@ -62,13 +61,6 @@ public class Usuario {
         this.tipo = tipo;
     }
 
-    public String getPrioridad() {
-        return prioridad;
-    }
-
-    public void setPrioridad(String prioridad) {
-        this.prioridad = prioridad;
-    }
 
    
     

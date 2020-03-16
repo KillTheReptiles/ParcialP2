@@ -7,21 +7,29 @@
 
     <ui:define name="contenido">
         <h:form>
-            <h:dataTable value="#{userController.solicitudList}" var="u" border="1" >
+            <h:dataTable value="#{userController.solicitudList}"  rendered="#{userController.listEmpty}" var="u" border="1" >
                 <h:column>
                     <f:facet name="header">Usuario</f:facet>
-                        #{u.descripcion}
+                        #{u.usuario}
                 </h:column>
                 <h:column>
-                    <f:facet name="header">Contraseña</f:facet>
+                    <f:facet name="header">Fecha</f:facet>
                         #{u.fecha}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Descripcion</f:facet>
+                        #{u.descripcion}
                 </h:column>
 
                 <h:column>
-                    <f:facet name="header">Programa</f:facet>
+                    <f:facet name="header">Prioridad</f:facet>
                         #{u.prioridad}
                 </h:column>
+
+
             </h:dataTable>
+
+
         </h:form>
     </ui:define>
 

@@ -1,31 +1,31 @@
 
 package modelo;
-import modelo.Usuario;
+
+import java.util.Date;
+
 public class Solicitud{
     
-    private String fecha;
+    private Date fecha;
     private String descripcion;
     private String prioridad;
-    
-    Usuario user;
-    
+    private String usuario;
 
-    public Solicitud(String fecha, String descripcion, String prioridad, String userName) {
-        throw new UnsupportedOperationException("Not supported yet."); 
-    }
-
-    public Solicitud() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-
-    public String getFecha() {
+    public Solicitud(String descripcion, String prioridad, String usuario) {
+        this.descripcion = descripcion;
+        this.prioridad = prioridad;
+        this.usuario = usuario;
         
+    }
+
+    public Date getFecha() {
+        this.fecha= new Date();
         return fecha;
     }
 
-    public void setFecha(String fecha) {
-        
+    public Solicitud() {
+    }
+
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
@@ -44,5 +44,21 @@ public class Solicitud{
     public void setPrioridad(String prioridad) {
         this.prioridad = prioridad;
     }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public void getUsuario(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+
+
 
 }

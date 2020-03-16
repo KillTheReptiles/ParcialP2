@@ -8,6 +8,7 @@ package controlador;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import modelo.Solicitud;
 import modelo.Usuario;
@@ -21,16 +22,13 @@ public class UserController {
     private Usuario user;
     private List<Usuario> userList;
 
-    public UserController(Solicitud solicitud) {
-        this.solicitud = solicitud;
-    }
     private Solicitud solicitud;
     private List<Solicitud> solicitudList;
     
+    
+    
+    
 
-    /**
-     * Creates a new instance of UsuarioController
-     */
     public UserController() {
         user = new Usuario("", "", "");
         userList = new ArrayList<>();
@@ -38,10 +36,28 @@ public class UserController {
         userList.add(new Usuario("Pepito", "1234", "admin"));
         userList.add(new Usuario("Ferpito", "234", "estu"));
         userList.add(new Usuario("Lolito", "4578", "estu"));
+        
+        if(solicitudList==null){
+            solicitud = new Solicitud();
+           
         solicitudList = new ArrayList<>();
+        }else{
+            solicitud = new Solicitud();
+       
+        }
         
         
+    }
 
+     public boolean isListEmpty(){
+        return solicitudList != null && solicitudList.size()>0;
+    }
+    public Solicitud getSolicitud() {
+        return solicitud;
+    }
+
+    public void setSolicitud(Solicitud solicitud) {
+        this.solicitud = solicitud;
     }
 
     public Usuario getUser() {
@@ -54,13 +70,6 @@ public class UserController {
 
     public List<Usuario> getUserList() {
         return userList;
-    }
-        public Solicitud getSolicitud() {
-        return solicitud;
-    }
-
-    public void setSolicitud(Solicitud solicitud) {
-        this.solicitud = solicitud;
     }
 
     public List<Solicitud> getSolicitudList() {
@@ -93,19 +102,38 @@ public class UserController {
                 }
 
                 break;
-
             }
         }
 
         return pagina;
 
     }
-    
-    public void enviarSolicitud()
-    { 
+
+    public void validarAdmin() throws IOException {
+        FacesContext context = FacesContext.getCurrentInstance();
+        ExternalContext ex = context.getExternalContext();
+
+        if (user == null || user.getTipo().equals("estu")) {
+            ex.redirect("index.xhtml");
+        }
+    }
+
+    public void validarEstu() throws IOException {
+        FacesContext context = FacesContext.getCurrentInstance();
+        ExternalContext ex = context.getExternalContext();
+
+        if (user == null || user.getTipo().equals("admin")) {
+            ex.redirect("index.xhtml");
+        }
+    }
+
+    public void enviarSolicitud() {
+        solicitud.getFecha();
         solicitudList.add(this.solicitud);
+       
+
+        this.solicitud = new Solicitud();
 
     }
-    
 
 }
